@@ -9,6 +9,14 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
       "description": "Chrome DevTools / Puppeteer MCP: DOM inspection, CSS evaluation, console and network debugging"
+    },
+    "vercel": {
+      "command": "npx",
+      "args": ["-y", "vercel-mcp-server"],
+      "env": {
+        "VERCEL_TOKEN": ""
+      },
+      "description": "Vercel MCP: Deployments, domains, build logs, and project management"
     }
   }
 }
