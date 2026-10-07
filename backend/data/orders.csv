@@ -1,0 +1,26 @@
+order_id,customer_name,customer_tier,contact_email,sku_code,quantity,unit_price,order_value,promised_eta,revised_eta,delay_days,sla_penalty_exposure,status
+ORD-9001,Honeywell Aerospace Systems,Enterprise Tier 1,ops-logistics@honeywell.com,SKU-MC-772,2500,148.5,371250.0,2026-10-14,2026-10-20,6,33412.5,PENDING_ADVISORY
+ORD-9002,Schneider Electric Global,Commercial High-Volume,global.procurement@se.com,SKU-MC-772,6000,148.5,891000.0,2026-10-14,2026-10-20,6,80190.0,PENDING_ADVISORY
+ORD-9003,ABB Robotics Division,Enterprise Tier 1,procurement@ch.abb.com,SKU-MC-772,4500,148.5,668250.0,2026-10-14,2026-10-20,6,60142.5,PENDING_ADVISORY
+ORD-9004,Bosch Automotive Solutions,Enterprise Tier 1,orders@bosch.com,SKU-MC-772,2500,148.5,371250.0,2026-10-14,2026-10-20,6,33412.5,PENDING_ADVISORY
+ORD-9005,Alstom Transport SA,Commercial High-Volume,supply@alstom.com,SKU-MC-772,4500,148.5,668250.0,2026-10-14,2026-10-20,6,60142.5,PENDING_ADVISORY
+ORD-9006,Hitachi Energy Corp,Standard Commercial,procurement@hitachienergy.com,SKU-MC-772,3200,148.5,475200.0,2026-10-14,2026-10-20,6,42768.0,PENDING_ADVISORY
+ORD-9007,Siemens Mobility GMBH,Enterprise Tier 1,procurement@siemens-mobility.de,SKU-MC-772,3200,148.5,475200.0,2026-10-14,2026-10-20,6,42768.0,PENDING_ADVISORY
+ORD-9008,Honeywell Aerospace Systems,Enterprise Tier 1,ops-logistics@honeywell.com,SKU-MC-772,1200,148.5,178200.0,2026-10-14,2026-10-20,6,16038.0,PENDING_ADVISORY
+ORD-9009,Schneider Electric Global,Commercial High-Volume,global.procurement@se.com,SKU-MC-772,6000,148.5,891000.0,2026-10-14,2026-10-20,6,80190.0,PENDING_ADVISORY
+ORD-9010,ABB Robotics Division,Enterprise Tier 1,procurement@ch.abb.com,SKU-MC-772,4500,148.5,668250.0,2026-10-14,2026-10-20,6,60142.5,PENDING_ADVISORY
+ORD-9011,Bosch Automotive Solutions,Enterprise Tier 1,orders@bosch.com,SKU-MC-772,2500,148.5,371250.0,2026-10-14,2026-10-20,6,33412.5,PENDING_ADVISORY
+ORD-9012,Alstom Transport SA,Commercial High-Volume,supply@alstom.com,SKU-MC-772,3200,148.5,475200.0,2026-10-14,2026-10-20,6,42768.0,PENDING_ADVISORY
+ORD-9013,Hitachi Energy Corp,Standard Commercial,procurement@hitachienergy.com,SKU-MC-772,1200,148.5,178200.0,2026-10-14,2026-10-20,6,16038.0,PENDING_ADVISORY
+ORD-9014,Siemens Mobility GMBH,Enterprise Tier 1,procurement@siemens-mobility.de,SKU-MC-772,1200,148.5,178200.0,2026-10-14,2026-10-20,6,16038.0,PENDING_ADVISORY
+ORD-9015,Honeywell Aerospace Systems,Enterprise Tier 1,ops-logistics@honeywell.com,SKU-MC-772,4500,148.5,668250.0,2026-10-14,2026-10-20,6,60142.5,PENDING_ADVISORY
+ORD-9016,Schneider Electric Global,Commercial High-Volume,global.procurement@se.com,SKU-MC-772,3200,148.5,475200.0,2026-10-14,2026-10-20,6,42768.0,PENDING_ADVISORY
+ORD-9017,ABB Robotics Division,Enterprise Tier 1,procurement@ch.abb.com,SKU-MC-772,6000,148.5,891000.0,2026-10-14,2026-10-20,6,80190.0,PENDING_ADVISORY
+ORD-9018,Bosch Automotive Solutions,Enterprise Tier 1,orders@bosch.com,SKU-MC-772,3200,148.5,475200.0,2026-10-14,2026-10-20,6,42768.0,PENDING_ADVISORY
+ORD-9019,Alstom Transport SA,Commercial High-Volume,supply@alstom.com,SKU-MC-772,4500,148.5,668250.0,2026-10-14,2026-10-20,6,60142.5,PENDING_ADVISORY
+ORD-9020,Hitachi Energy Corp,Standard Commercial,procurement@hitachienergy.com,SKU-MC-772,4500,148.5,668250.0,2026-10-14,2026-10-20,6,60142.5,PENDING_ADVISORY
+ORD-9021,Siemens Mobility GMBH,Enterprise Tier 1,procurement@siemens-mobility.de,SKU-MC-772,3200,148.5,475200.0,2026-10-14,2026-10-20,6,42768.0,PENDING_ADVISORY
+ORD-9022,Honeywell Aerospace Systems,Enterprise Tier 1,ops-logistics@honeywell.com,SKU-MC-772,4500,148.5,668250.0,2026-10-14,2026-10-20,6,60142.5,PENDING_ADVISORY
+ORD-9023,Schneider Electric Global,Commercial High-Volume,global.procurement@se.com,SKU-MC-772,3200,148.5,475200.0,2026-10-14,2026-10-20,6,42768.0,PENDING_ADVISORY
+ORD-9024,ABB Robotics Division,Enterprise Tier 1,procurement@ch.abb.com,SKU-MC-772,2500,148.5,371250.0,2026-10-14,2026-10-20,6,33412.5,PENDING_ADVISORY
+ORD-9025,Bosch Automotive Solutions,Enterprise Tier 1,orders@bosch.com,SKU-MC-772,3200,148.5,475200.0,2026-10-14,2026-10-20,6,42768.0,PENDING_ADVISORY

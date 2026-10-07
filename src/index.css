@@ -1,0 +1,411 @@
+/* ─── Glideapps Design System — Inter & JetBrains Mono ─── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ─── Official Brand Palette from material/colorpattate.png ─── */
+  --color-palette-1: #8e3a59; /* Deep Berry Wine (Primary Brand) */
+  --color-palette-2: #a5617a; /* Rich Mauve Rose (Interactive Hover) */
+  --color-palette-3: #bb899b; /* Dusty Rose (Medium Accent) */
+  --color-palette-4: #d2b0bd; /* Soft Rose Mist (Borders & Badges) */
+  --color-palette-5: #e8d8de; /* Pale Rose Tint (Subtle Surface Fill) */
+
+  /* Functional Token Mappings - White is dominant, Magenta is a refined accent */
+  --color-primary-brand: #8e3a59;
+  --color-primary-brand-hover: #752d48;
+  --color-primary-magenta: #8e3a59;
+  --color-primary-magenta-hover: #752d48;
+  --color-magenta-mist: #ffffff;
+  --color-magenta-light: #fdf2f8;
+  --color-magenta-border: #fbcfe8;
+  --color-magenta-text: #8e3a59;
+  
+  --color-ink-black: #0f172a;
+  --color-charcoal: #1e293b;
+  --color-graphite: #475569;
+  --color-obsidian: #0f172a;
+  --color-slate: #334155;
+  --color-ash-gray: #64748b;
+  --color-fog: #94a3b8;
+  --color-stone: #e2e8f0;
+  --color-bone: #f8fafc;
+  --color-paper-white: #ffffff;
+
+  /* Backward compatibility tokens mapped to new palette */
+  --color-glide-teal: #8e3a59;
+  --color-teal-mist: #fdf2f8;
+  --color-sand: #1e293b;
+  --color-sage: #8e3a59;
+  --color-taupe: #475569;
+  --color-cream: #f8fafc;
+  --color-white: #ffffff;
+  --color-dark: #0f172a;
+  --color-mid: #1e293b;
+  --color-light: #f8fafc;
+
+  /* Typography scale */
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-subheading: 20px;
+  --text-heading-sm: 22px;
+  --text-heading: 36px;
+  --text-heading-lg: 48px;
+  --text-display: 80px;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --page-max-width: 1200px;
+
+  /* Border Radii: Exactly 6px across cards, buttons, inputs, images */
+  --radius-md: 6px;
+  --radius-cards: 6px;
+  --radius-buttons: 6px;
+  --radius-inputs: 6px;
+  --radius-tags: 6px;
+
+  /* Elevation: Inset highlights instead of fuzzy drop shadows */
+  --shadow-subtle: rgba(255, 255, 255, 0.2) 0px -1px 0px 0px inset;
+  --shadow-subtle-2: rgb(255, 255, 255) 0px -2px 0px 0px inset;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-paper-white);
+  }
+
+  body {
+    background-color: var(--color-paper-white);
+    color: var(--color-ink-black);
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: inherit;
+  }
+
+  p {
+    color: var(--color-charcoal);
+  }
+}
+
+/* ─── Custom Scrollbars (Clean Drafting Table) ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-stone);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-graphite);
+}
+
+/* ─── Card Component (Hairline Border, 6px Radius, Inset Highlight) ─── */
+.rim-card {
+  background: var(--color-paper-white);
+  border: 1px solid var(--color-stone);
+  border-radius: 6px;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+}
+
+.rim-card-bone {
+  background: var(--color-bone);
+  border: 1px solid var(--color-stone);
+  border-radius: 6px;
+}
+
+.rim-card-border-black {
+  background: var(--color-paper-white);
+  border: 1px solid var(--color-ink-black);
+  border-radius: 6px;
+}
+
+/* ─── Primary Brand Wine Action Button ─── */
+.rim-btn-primary,
+.btn-teal,
+.btn-magenta {
+  background: var(--color-palette-1) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(142, 58, 89, 0.4);
+  cursor: pointer;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px -1px 0px 0px inset, rgba(142, 58, 89, 0.3) 0px 4px 12px 0px;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rim-btn-primary:hover,
+.btn-teal:hover,
+.btn-magenta:hover {
+  background: var(--color-palette-2) !important;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px -2px 0px 0px inset, rgba(142, 58, 89, 0.45) 0px 6px 16px 0px;
+}
+
+.rim-btn-primary:active,
+.btn-teal:active,
+.btn-magenta:active {
+  transform: translateY(1px);
+}
+
+/* ─── Outlined Ghost Button (Hairline Wine/Charcoal Border) ─── */
+.rim-btn-secondary,
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink-black);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: 1px solid var(--color-stone);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rim-btn-secondary:hover,
+.btn-ghost:hover {
+  background: var(--color-palette-5);
+  border-color: var(--color-palette-4);
+  color: var(--color-palette-1);
+}
+
+/* ─── Input Field & Icon Overlap Prevention Fix ─── */
+.rim-input {
+  background: #ffffff;
+  border: 1px solid var(--color-stone);
+  border-radius: 6px;
+  color: var(--color-ink-black);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  padding: 10px 14px;
+  width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.rim-input:focus {
+  border-color: var(--color-palette-1);
+  box-shadow: 0 0 0 3px rgba(142, 58, 89, 0.12);
+}
+
+.rim-input::placeholder {
+  color: var(--color-ash-gray);
+  opacity: 0.8;
+}
+
+/* Fix graphic symbols overlapping placeholder / input text */
+.relative > .rim-input,
+.rim-input.pl-9,
+.rim-input.pl-10,
+.rim-input.pl-11,
+.rim-input-has-icon {
+  padding-left: 42px !important;
+}
+
+.relative > .rim-input.pr-9,
+.relative > .rim-input.pr-10,
+.relative > .rim-input.pr-11 {
+  padding-right: 42px !important;
+}
+
+/* ─── JetBrains Mono for telemetry & metric codes ─── */
+.rim-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Announcement Pill (Color Palette Theme) ─── */
+.announcement-pill {
+  background: var(--color-palette-5);
+  color: var(--color-palette-1);
+  border: 1px solid var(--color-palette-4);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Status Badges (6px Radius) ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.1;
+  vertical-align: middle;
+}
+
+.badge-teal,
+.badge-magenta,
+.badge-brand,
+.badge-ai {
+  background: var(--color-palette-5);
+  color: var(--color-palette-1);
+  border: 1px solid var(--color-palette-4);
+}
+
+.badge-healthy {
+  background: #edf7f0;
+  color: #176537;
+  border: 1px solid #b6e2c8;
+}
+
+.badge-warning {
+  background: var(--color-palette-5);
+  color: var(--color-palette-1);
+  border: 1px solid var(--color-palette-3);
+}
+
+.badge-critical {
+  background: #fdf2f2;
+  color: #8c2323;
+  border: 1px solid #f9c0c0;
+}
+
+.badge-bone {
+  background: var(--color-bone);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-stone);
+}
+
+/* ─── Sidebar Active State ─── */
+.sidebar-active {
+  background: var(--color-palette-5) !important;
+  border: 1px solid var(--color-palette-4) !important;
+  border-left: 3px solid var(--color-palette-1) !important;
+  color: var(--color-palette-1) !important;
+  font-weight: 700 !important;
+}
+
+/* ─── Table Header & Row ─── */
+.rim-th {
+  background: var(--color-bone);
+  color: var(--color-ink-black);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-stone);
+}
+
+.rim-tr {
+  border-bottom: 1px solid var(--color-stone);
+  transition: background 0.1s ease;
+  color: var(--color-ink-black);
+}
+
+.rim-tr:hover {
+  background: var(--color-palette-5);
+}
+
+/* ─── Section Title ─── */
+.rim-section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-palette-2);
+}
+
+/* ─── Page Hero Drafting Table ─── */
+.rim-hero-gradient {
+  background: var(--color-paper-white);
+  border-bottom: 1px solid var(--color-stone);
+}
+
+.rim-glass {
+  background: var(--color-paper-white);
+  border: 1px solid var(--color-stone);
+  border-radius: 6px;
+}
+
+/* ─── Pulse Dot (Wine/Rose Spark) ─── */
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-palette-1);
+  box-shadow: 0 0 0 1px var(--color-palette-4);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+/* ─── Notification Bar ─── */
+.rim-notification {
+  background: var(--color-palette-5);
+  border-bottom: 1px solid var(--color-palette-4);
+  color: var(--color-palette-1);
+}

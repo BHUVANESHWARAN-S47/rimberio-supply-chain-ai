@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"],
+      "description": "Playwright MCP: Browser automation, navigation, clicking, screenshots and automated UI testing"
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+      "description": "Chrome DevTools / Puppeteer MCP: DOM inspection, CSS evaluation, console and network debugging"
+    }
+  }
+}

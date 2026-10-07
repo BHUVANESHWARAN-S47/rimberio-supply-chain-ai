@@ -1,0 +1,51 @@
+Product type,SKU,Price,Availability,Number of products sold,Revenue generated,Stock levels,Lead times,Order quantities,Shipping times,Shipping carriers,Shipping costs,Supplier name,Location,Production volumes,Manufacturing lead time,Manufacturing costs,Inspection results,Defect rates,Transportation modes,Routes,Costs
+Electronics,SKU-MC-701,203.65,15000,3000,610950.0,1200,16,5000,12,Maersk Logistics,96.85,Apex Global Electronics,Singapore,60000,16,162.92,Pending Review,4.3,Sea Freight,Route A (Maritime Suez),187.36
+Electronics,SKU-MC-702,183.08,2500,3000,549225.0,1200,8,2000,4,Maersk Logistics,48.31,Murata Integrated Circuits,Japan,80000,8,146.46,Pending Review,4.09,Sea Freight,Route B (Panama Direct),168.43
+Electronics,SKU-MC-703,167.14,2500,1000,501412.5,4500,12,500,8,Maersk Logistics,47.3,Kyocera Precision Corp,South Korea,40000,12,133.71,Pass,1.23,Sea Freight,Route D (Trans-Pacific),153.77
+Electronics,SKU-MC-704,159.66,5000,1000,478987.5,9000,12,2000,8,Maersk Logistics,90.68,Taiwan Micro-Tech Corp,Taiwan,80000,12,127.73,Pass,1.29,Sea Freight,Route A (Maritime Suez),146.89
+Electronics,SKU-MC-705,186.39,2500,1000,559162.5,9000,10,2000,6,Maersk Logistics,96.78,Shenzhen PCB Manufacturing,China,40000,10,149.11,Pass,2.01,Sea Freight,Route D (Trans-Pacific),171.48
+Electronics,SKU-MC-706,186.74,5000,1000,560212.5,1200,16,500,12,Maersk Logistics,91.99,Apex Global Electronics,Singapore,40000,16,149.39,Pass,1.04,Sea Freight,Route A (Maritime Suez),171.8
+Electronics,SKU-MC-707,159.6,15000,8000,478800.0,1200,12,5000,8,Maersk Logistics,88.45,Murata Integrated Circuits,Japan,40000,12,127.68,Pass,2.19,Sea Freight,Route D (Trans-Pacific),146.83
+Electronics,SKU-MC-708,191.05,15000,1000,573150.0,1200,20,5000,16,Maersk Logistics,81.02,Kyocera Precision Corp,South Korea,60000,20,152.84,Pending Review,3.57,Sea Freight,Route A (Maritime Suez),175.77
+Electronics,SKU-MC-709,184.27,15000,1000,552825.0,9000,12,5000,8,Maersk Logistics,108.0,Taiwan Micro-Tech Corp,Taiwan,60000,12,147.42,Pass,1.9,Sea Freight,Route C (Air Express),169.53
+Electronics,SKU-MC-710,181.49,5000,3000,544462.5,1200,12,2000,8,Maersk Logistics,62.1,Shenzhen PCB Manufacturing,China,60000,12,145.19,Pending Review,4.07,Sea Freight,Route D (Trans-Pacific),166.97
+Electronics,SKU-MC-711,162.65,2500,1000,487950.0,4500,12,500,8,Maersk Logistics,49.15,Apex Global Electronics,Singapore,60000,12,130.12,Pass,0.69,Sea Freight,Route C (Air Express),149.64
+Electronics,SKU-MC-712,162.73,5000,8000,488175.0,4500,16,500,12,Maersk Logistics,111.05,Murata Integrated Circuits,Japan,40000,16,130.18,Pass,1.63,Sea Freight,Route B (Panama Direct),149.71
+Electronics,SKU-MC-713,158.46,15000,8000,475387.5,4500,20,2000,16,Maersk Logistics,106.61,Kyocera Precision Corp,South Korea,40000,20,126.77,Pass,1.8,Sea Freight,Route B (Panama Direct),145.79
+Electronics,SKU-MC-714,202.27,5000,8000,606825.0,9000,16,500,12,Maersk Logistics,60.72,Taiwan Micro-Tech Corp,Taiwan,80000,16,161.82,Pass,2.12,Sea Freight,Route A (Maritime Suez),186.09
+Electronics,SKU-MC-715,175.89,15000,3000,527662.5,1200,16,5000,12,Maersk Logistics,54.26,Shenzhen PCB Manufacturing,China,40000,16,140.71,Pending Review,3.07,Sea Freight,Route C (Air Express),161.82
+Electronics,SKU-MC-716,185.46,5000,3000,556387.5,9000,10,2000,6,Maersk Logistics,63.64,Apex Global Electronics,Singapore,40000,10,148.37,Pass,0.75,Sea Freight,Route D (Trans-Pacific),170.63
+Electronics,SKU-MC-717,175.69,2500,3000,527062.5,4500,20,2000,16,Maersk Logistics,99.24,Murata Integrated Circuits,Japan,80000,20,140.55,Pass,1.81,Sea Freight,Route A (Maritime Suez),161.63
+Electronics,SKU-MC-718,203.69,5000,1000,611062.5,4500,12,2000,8,Maersk Logistics,47.96,Kyocera Precision Corp,South Korea,40000,12,162.95,Pending Review,3.19,Sea Freight,Route D (Trans-Pacific),187.39
+Electronics,SKU-MC-719,168.05,5000,8000,504150.0,4500,16,2000,12,Maersk Logistics,81.52,Taiwan Micro-Tech Corp,Taiwan,60000,16,134.44,Pending Review,3.34,Sea Freight,Route B (Panama Direct),154.61
+Electronics,SKU-MC-720,185.38,15000,1000,556125.0,1200,8,500,4,Maersk Logistics,67.08,Shenzhen PCB Manufacturing,China,60000,8,148.3,Pending Review,3.07,Sea Freight,Route A (Maritime Suez),170.54
+Electronics,SKU-MC-721,158.69,15000,3000,476062.5,1200,12,5000,8,Maersk Logistics,75.39,Apex Global Electronics,Singapore,40000,12,126.95,Pending Review,3.07,Sea Freight,Route D (Trans-Pacific),145.99
+Electronics,SKU-MC-722,190.1,2500,3000,570300.0,4500,12,500,8,Maersk Logistics,64.32,Murata Integrated Circuits,Japan,80000,12,152.08,Pass,2.31,Sea Freight,Route C (Air Express),174.89
+Electronics,SKU-MC-723,168.34,5000,3000,505012.5,9000,10,5000,6,Maersk Logistics,87.66,Kyocera Precision Corp,South Korea,80000,10,134.67,Pass,2.1,Sea Freight,Route A (Maritime Suez),154.87
+Electronics,SKU-MC-724,171.35,15000,1000,514050.0,4500,20,500,16,Maersk Logistics,93.95,Taiwan Micro-Tech Corp,Taiwan,80000,20,137.08,Pending Review,3.02,Sea Freight,Route D (Trans-Pacific),157.64
+Electronics,SKU-MC-725,182.1,5000,1000,546300.0,1200,10,2000,6,Maersk Logistics,90.29,Shenzhen PCB Manufacturing,China,40000,10,145.68,Pass,1.38,Sea Freight,Route D (Trans-Pacific),167.53
+Electronics,SKU-MC-726,176.99,15000,8000,530962.5,4500,16,500,12,Maersk Logistics,118.46,Apex Global Electronics,Singapore,40000,16,141.59,Pass,2.91,Sea Freight,Route D (Trans-Pacific),162.83
+Electronics,SKU-MC-727,200.05,15000,1000,600150.0,1200,20,500,16,Maersk Logistics,115.19,Murata Integrated Circuits,Japan,40000,20,160.04,Pass,2.16,Sea Freight,Route D (Trans-Pacific),184.05
+Electronics,SKU-MC-728,178.43,15000,8000,535275.0,1200,16,500,12,Maersk Logistics,111.73,Kyocera Precision Corp,South Korea,40000,16,142.74,Pending Review,3.68,Sea Freight,Route D (Trans-Pacific),164.15
+Electronics,SKU-MC-729,181.59,15000,3000,544762.5,9000,10,5000,6,Maersk Logistics,81.97,Taiwan Micro-Tech Corp,Taiwan,40000,10,145.27,Pending Review,3.31,Sea Freight,Route D (Trans-Pacific),167.06
+Electronics,SKU-MC-730,180.12,5000,3000,540375.0,1200,12,500,8,Maersk Logistics,68.78,Shenzhen PCB Manufacturing,China,60000,12,144.1,Pending Review,4.11,Sea Freight,Route A (Maritime Suez),165.71
+Electronics,SKU-MC-731,194.35,15000,1000,583050.0,1200,20,500,16,Maersk Logistics,88.19,Apex Global Electronics,Singapore,80000,20,155.48,Pass,1.71,Sea Freight,Route D (Trans-Pacific),178.8
+Electronics,SKU-MC-732,172.01,15000,1000,516037.5,4500,10,500,6,Maersk Logistics,76.96,Murata Integrated Circuits,Japan,60000,10,137.61,Pending Review,3.89,Sea Freight,Route B (Panama Direct),158.25
+Electronics,SKU-MC-733,192.24,2500,1000,576712.5,4500,16,500,12,Maersk Logistics,57.2,Kyocera Precision Corp,South Korea,80000,16,153.79,Pending Review,4.15,Sea Freight,Route D (Trans-Pacific),176.86
+Electronics,SKU-MC-734,164.68,15000,1000,494025.0,9000,16,500,12,Maersk Logistics,48.34,Taiwan Micro-Tech Corp,Taiwan,60000,16,131.74,Pending Review,3.04,Sea Freight,Route C (Air Express),151.5
+Electronics,SKU-MC-735,180.26,15000,3000,540787.5,9000,8,5000,4,Maersk Logistics,87.58,Shenzhen PCB Manufacturing,China,60000,8,144.21,Pass,1.38,Sea Freight,Route C (Air Express),165.84
+Electronics,SKU-MC-736,165.79,2500,8000,497362.5,1200,8,500,4,Maersk Logistics,90.38,Apex Global Electronics,Singapore,60000,8,132.63,Pass,1.18,Sea Freight,Route D (Trans-Pacific),152.52
+Electronics,SKU-MC-737,162.01,2500,1000,486037.5,9000,20,500,16,Maersk Logistics,96.25,Murata Integrated Circuits,Japan,40000,20,129.61,Pass,2.83,Sea Freight,Route C (Air Express),149.05
+Electronics,SKU-MC-738,162.07,5000,1000,486225.0,9000,12,5000,8,Maersk Logistics,91.67,Kyocera Precision Corp,South Korea,60000,12,129.66,Pass,1.72,Sea Freight,Route A (Maritime Suez),149.11
+Electronics,SKU-MC-739,182.2,5000,8000,546600.0,1200,10,500,6,Maersk Logistics,104.89,Taiwan Micro-Tech Corp,Taiwan,40000,10,145.76,Pending Review,3.06,Sea Freight,Route A (Maritime Suez),167.62
+Electronics,SKU-MC-740,204.79,15000,8000,614362.5,4500,10,5000,6,Maersk Logistics,119.59,Shenzhen PCB Manufacturing,China,80000,10,163.83,Pending Review,4.34,Sea Freight,Route D (Trans-Pacific),188.4
+Electronics,SKU-MC-741,187.1,5000,1000,561300.0,4500,10,2000,6,Maersk Logistics,80.94,Apex Global Electronics,Singapore,80000,10,149.68,Pass,1.26,Sea Freight,Route A (Maritime Suez),172.13
+Electronics,SKU-MC-742,183.19,2500,1000,549562.5,1200,16,5000,12,Maersk Logistics,108.12,Murata Integrated Circuits,Japan,80000,16,146.55,Pass,2.62,Sea Freight,Route B (Panama Direct),168.53
+Electronics,SKU-MC-743,162.06,5000,1000,486187.5,9000,8,500,4,Maersk Logistics,68.12,Kyocera Precision Corp,South Korea,60000,8,129.65,Pass,1.69,Sea Freight,Route A (Maritime Suez),149.1
+Electronics,SKU-MC-744,188.89,15000,8000,566662.5,4500,8,500,4,Maersk Logistics,66.04,Taiwan Micro-Tech Corp,Taiwan,80000,8,151.11,Pass,2.41,Sea Freight,Route C (Air Express),173.78
+Electronics,SKU-MC-745,159.24,2500,1000,477712.5,1200,10,500,6,Maersk Logistics,94.12,Shenzhen PCB Manufacturing,China,60000,10,127.39,Pass,1.66,Sea Freight,Route D (Trans-Pacific),146.5
+Electronics,SKU-MC-746,167.62,5000,1000,502875.0,4500,12,5000,8,Maersk Logistics,114.47,Apex Global Electronics,Singapore,40000,12,134.1,Pending Review,3.48,Sea Freight,Route D (Trans-Pacific),154.21
+Electronics,SKU-MC-747,174.0,2500,3000,522000.0,1200,10,500,6,Maersk Logistics,62.94,Murata Integrated Circuits,Japan,40000,10,139.2,Pass,0.83,Sea Freight,Route B (Panama Direct),160.08
+Electronics,SKU-MC-748,191.77,2500,8000,575325.0,4500,10,2000,6,Maersk Logistics,114.07,Kyocera Precision Corp,South Korea,40000,10,153.42,Pending Review,4.27,Sea Freight,Route C (Air Express),176.43
+Electronics,SKU-MC-749,178.7,5000,3000,536100.0,1200,20,5000,16,Maersk Logistics,77.77,Taiwan Micro-Tech Corp,Taiwan,80000,20,142.96,Pass,1.35,Sea Freight,Route B (Panama Direct),164.4
+Electronics,SKU-MC-750,165.46,15000,8000,496387.5,1200,8,5000,4,Maersk Logistics,110.72,Shenzhen PCB Manufacturing,China,80000,8,132.37,Pass,2.61,Sea Freight,Route D (Trans-Pacific),152.23

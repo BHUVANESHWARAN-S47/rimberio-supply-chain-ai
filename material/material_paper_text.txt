@@ -1,0 +1,124 @@
+A Counterfactual Multi-Agent Framework for Adaptive Supplier Negotiation and Customer-Aware Supply Chain Switching
+Amsa M
+Department of Artificial Intelligence
+and Data Science
+M Kumarasamy College of Engineering
+Karur, India
+amsam.ai@mkce.ac.in
+Bhuvaneshwaran S
+Department of Artificial Intelligence
+and Data Science
+M Kumarasamy College of Engineering
+Karur, India
+bhuvaneshwaran.s2005@gmail.com
+Harish Aravindh V
+Department of Artificial Intelligence
+and Data Science
+M Kumarasamy College of Engineering
+Karur, India
+harisharavindh2576@gmail.com
+Mithun S
+Department of Artificial Intelligence
+and Data Science
+M Kumarasamy College of Engineering
+Karur, India
+smithun0412@gmail.com
+Abstract—Modern supply chains include multiple agents, such as suppliers, manufacturers, logistics, and customers. Supplier selection and negotiation becomes complicated in such supply chains. The majority of the existing negotiation systems consider only the price, quality, delivery, and individual utility of the selected supplier, ignoring the consequences of the choice. Herein, the multi-agent system is proposed that uses the Counterfactual Negotiation Twin to reason about the consequences of supplier agreements in order to make the best choice. The candidate suppliers are evaluated in terms of cost, quality, delivery, inventory, risk, and potential performance. An adaptive negotiation system evaluates if it is worth continuing the negotiations in order to replace the current supplier or not. The framework includes a customer impact module, which detects if the change of supplier has a major impact on the customers and sends a notification to them. The framework makes a comparison of the predicted and the actual performance of the selected supplier in order to improve the future supplier negotiations. The proposed framework improves the negotiation efficiency, the performance of the supply chain, decision-making, and customer transparency.
+Keywords—Multi-Agent Systems, Supply Chain Negotiation, Counterfactual Reasoning, Supplier Switching, Large Language Models, Customer Transparency.
+I. INTRODUCTION
+Supply chain management is crucial for a modern enterprise as it manages several suppliers, manufacturers, logistics, and customers. Since most enterprises operate in a competitive environment where the customers demand rapid service, the enterprise must evaluate alternative suppliers considering the criteria of cost, quality, delivery, capacity, and risk. While it can be easy to determine which supplier has the better price, the negotiation must take into account the combination of advantages and disadvantages offered in the short-term and long-term perspectives.
+II. LITERATURE SURVEY
+Multi-agent systems have been used in decentralized supply-chain negotiations where buyer and supplier agents negotiate terms of price, quantity, quality, and delivery. Game-theory, auctions, utility-based, and multi-objective models have been used for negotiation facilitation between the agents where all focus on the individual utility of the agents.
+Recently, negotiation systems have used large language models where the agents comprehend proposals, reason about preferences, and counterpropose offers. However, there has been a limited attention to the future implications of the negotiated agreement.
+Supplier selection systems have used such criteria as cost, quality, delivery, reliability, past performance, and risk. Many approaches including machine learning, Bayesian networks, and multi-criteria decision-making were applied for ranking of suppliers wherein little attention was paid to counterfactual scenario of the agreement.
+The risk-aware methodologies have focused on the mitigation of supplier failure, transportation disruptions, demand variability, and inventory shortage. While such approaches were helpful in understanding the risks, there is little focus on the direct application of those approaches to the process of agreement negotiation.
+Customer transparency is extremely important for retaining a certain level of trust if the supplier change leads to the change in product availability, delivery time, quality, and service. While there are systems that notify the customers of such changes, the customer notification is separate from the process of supplier selection and negotiation. Therefore, the analysis of the impact of supplier changes on the customers is required prior to making any changes.
+The analyzed related works show that although the majority of the methods concentrate on the multi-agent negotiation, decision-making, and risk-aware supplier selection, there is little research related to counterfactual forecasting, adaptive supplier negotiation, supplier switching, and customer transparency. The proposed framework implements the above-mentioned capabilities through the Counterfactual Negotiation Twin and Customer Impact Agent.
+III. PROPOSED ARCHITECTURE
+The suggested article presents a novel framework that employs Multi-Agent AI for smart supply-chain negotiation and switching between suppliers. It differs from the state-of-the-art approaches in the introduction of autonomous buyer, supplier, and logistics agents that negotiate terms such as price, quality, quantity, delivery, and risk. The system facilitates comparison between different suppliers and proposes to retain the existing supplier, negotiate, and switch to another supplier.
+The key component of the system is the Counterfactual Negotiation Twin that is used to evaluate the candidate agreements. The agreements are evaluated based on the cost, inventory, delivery, risk, profit, and service level. The customer-impact module estimates if supplier change has an impact on the customers and offers the corresponding information and triggers the notification.
+Fig. 1.  Confusion matrix for adaptive supplier decision classification.
+As seen from Fig. 3, the system includes several key components such as multi-agent negotiation mechanism, counterfactual simulation, supplier comparison, adaptive decision-making process, and customer notification. Moreover, the system has a feedback loop that compares the actual performance of the selected supplier to the predicted performance in order to continuously improve.
+A. System Architecture
+Enterprise and suppliers interact with the system via the negotiation layer in which autonomous agents negotiate and analyze suppliers' proposals. Buyer Agent represents the needs of the enterprise, whereas Supplier Agents make proposals regarding price, quality, quantity, and delivery of their products. The Logistics Agent analyzes the supplier proposals from the perspective of logistics.
+The Counterfactual Negotiation Twin gets candidate agreements and makes forecasts about possible future outcomes considering many scenarios of demand and risk. The Supplier Comparison module shows forecast performance of available suppliers, whereas the Adaptive Decision module decides whether to keep the current supplier, negotiate, or choose a new supplier.
+When a supplier is switched, the Customer Impact Agent estimates the consequences related to the deliveries, availability, quality, and service of the enterprise. In case the change has a significant impact, the Notification module notifies the customers and provides an explanation. Finally, the performance of the selected supplier is estimated and compared to forecast to make further improvements.
+B. Challenges and Limitations
+The suggested system faces some challenges and limitations.
+Data dependency: The performance of supplier evaluation and counterfactual negotiation depends on the quality of supply chain data.
+Simulations accuracy: The accuracy of the predictions is determined by the accuracy of demand, risk, inventory, and supplier-performance models.
+Privacy and cost issues: The negotiation with suppliers can involve lots of data, whereas the usage of multiple simulation and LLM agents can cost much.
+IV. METHODOLOGY
+The proposed multi-agent supply chain system uses autonomous agents, supplier evaluation, negotiation, and counterfactual simulation to assist the intelligent supplier decision-making. First of all, supplier, demand, inventory, logistics, and historical performance data are collected and preprocessed to provide reliable input for the decision-making process. Then the system analyzes the available suppliers and starts the negotiation between buyer and supplier agents considering price, quality, quantity, delivery, and risk.
+The key element of the methodology is the use of Counterfactual Negotiation Twin for counterfactual simulations of future outcomes of candidate supplier agreements. Different scenarios, such as demand fluctuations, delivery disruptions, and supply interruptions are considered to predict changes in cost, profit, inventory, risk, and service level. Predicted outcomes are compared for different suppliers to find out whether it is better to keep the current supplier, negotiate, or switch to a new supplier.future outcomes of candidate supplier agreements. Different scenarios, such as variations in demand, delivery delays, and supply disruptions are considered to estimate the cost, profit, inventory, risk, and service-level changes. The predicted outcomes are compared between suppliers to decide whether the enterprise should retain the current supplier, negotiate, or change to an alternative supplier.
+Once the supplier is chosen, the Customer Impact Agent evaluates if the change has an impact on the delivery, availability, quality, and service of the enterprise. In cases when there is a significant impact, the Notification module notifies the customers with appropriate information. Finally, the performance of the selected supplier is compared to the predicted one.
+A. Data Collection and Preprocessing
+The data on suppliers and supply chain can be gathered from supplier profiles, historical performance of suppliers, demand forecasts, inventory data, and logistics data. The collected data will be preprocessed in order to eliminate inconsistencies and obtain reliable input for the supplier evaluation and simulation.
+Noise Removal: Elimination of duplicates, irrelevant and incomplete records.
+Categorical Encoding: Categorical encoding of data, including supplier and product categories.
+Normalization: Normalization of numerical data, such as price, delivery time, quality, and risk score.
+Data Validation: Data validation for inconsistencies and missing values before preprocessing.
+B. Feature Extraction
+The system will extract the necessary features from the data for the purposes of supplier evaluation and counterfactual simulation.
+Supplier Features: Features related to suppliers, such as price, quality, delivery time, reliability, risk score, and capacity.
+Supply Chain Features: Features related to supply chain, such as demand, inventory level, transportation time, disruption probability, and logistics performance.
+Performance Features: Features related to performance, such as delivery performance history and quality consistency.
+Customer Features: Features related to customers, such as expected delivery time, availability, and service level.
+C. Algorithms Used
+a) Supplier Evaluation and Ranking: An algorithm that ranks the suppliers according to the weighted combination of criteria, including price, quality, delivery, reliability, and risk score.
+b) Multi-Agent Negotiation: Algorithms facilitating negotiations between buyer and supplier agents according to the specified terms and constraints.
+c) Counterfactual Simulation: An algorithm facilitating the forecasting of the potential future outcomes of candidate supplier agreements.
+d) Adaptive Supplier Decision: An algorithm selecting the best option based on the predicted outcomes of counterfactual simulation.
+e) Customer Impact Analysis: An algorithm evaluating the impact of a supplier change on delivery, availability, quality, and service of the enterprise.
+Fig. 2.  Supplier performance comparison across candidate suppliers.
+D. Feedback and Validation
+Once the switching of the supplier occurs, the actual performance of the chosen supplier is compared with the performance predicted of the Counterfactual Negotiation Twin, the difference of which could serve as feedback for the future supplier evaluation and negotiations.
+F. Evaluation Metrics
+The proposed framework could be evaluated according to the following metrics.
+Agreement Success Rate: The proportion of successful negotiations.
+Negotiation Efficiency: Number of rounds needed to achieve the agreement.
+Supply Chain Cost: The total cost associated with the chosen supplier.
+Stockout Rate: The frequency of stockouts.
+Delivery Delay: The gap between the expected and actual delivery time.
+Counterfactual Prediction Error: The gap between the predicted and actual supplier performance.
+Customer Impact Accuracy: The ability to detect the supplier changes influencing the customers.
+G. Case Study and Model Parameters
+In order to show the capabilities of the proposed model, a synthetic supply-chain data set could be employed. The data set would contain multiple suppliers with different price, quality, delivery time, reliability, and risk scores. In addition, the data set would contain the demand variations, inventory levels, and disruption scenarios.
+For the case study, 20 suppliers can be considered with 1,000 negotiation scenarios that consist of normal demand, high demand, supplier delays, transportation disruption, and inventory shortage. The counterfactual simulation can analyze multiple candidate agreements in each of the scenarios. The LLM agents can be customized with particular negotiation constraints while the supplier-ranking algorithm can employ certain supplier feature weights. Hyperparameters can be optimized using validation experiment to obtain a desired trade-off between the negotiation accuracy and computational complexity.
+V. RESULTS AND DISCUSSION
+The proposed system will be assessed using simulated supply-chain data set including supplier profiles, negotiation history, demand forecasts, inventory records, and logistics metrics. The experimental analysis will be done through comparison of the traditional supplier selection methods, multi-agent negotiation, and the proposed counterfactual approach in terms of negotiation efficiency, supply-chain performance, supplier switching decision, counterfactual prediction accuracy, and identification of the customer impact.
+The results will confirm if the Counterfactual Negotiation Twin can enhance the supplier decision-making by considering the future implications of the supplier agreements and reveal the role of adaptive negotiations and customer impact assessment in the negotiation process.
+A. Experimental Setup
+The experiments will use a data set of many suppliers having data on price, quality, lead time, reliability, capacity, and risk factors. The scenarios will be created through changes in demand, inventory level, supplier delay, and disruptions in transportation.
+A data set will be divided into a training set and a test set, where machine learning algorithms will be utilized. Experiments will be carried out with the help of a programming language such as Python along with other relevant libraries including Pandas, NumPy, and Scikit-learn, along with the selected LLM/multi-agent framework. The Counterfactual Negotiation Twin will carry out the process of counterfactual simulation of the candidate agreements in different scenarios.
+Fig. 3.  Architecture of the multi-agent supply chain framework.
+B. Supplier Performance Comparison
+Supplier comparison module presents the performance of the candidate suppliers based on the combination of price, quality, delivery, reliability, risk and counterfactual utility. The graphical interface helps the enterprise in making a decision about suppliers based on the predicted outcomes.
+For example, a supplier with slightly higher price can deliver better in terms of delivery reliability and disruption risk, which would ultimately result in the decision based on the predicted outcomes of the supply chain.
+C. Comparison with Existing Systems
+The existing systems mainly concentrate on supplier selection, negotiation, price, quality, delivery, and risk. The proposed framework outperforms the existing frameworks by implementing the Counterfactual Negotiation Twin that reasons about the outcomes of the future supplier agreements, supports retain/negotiate/switch decisions, and highlights customer impact after the switch of the supplier.
+D. Discussion
+The proposed framework makes the future-aware supplier negotiation possible due to the consideration of the downstream implications of the cost, delivery, inventory, risk and service level. The Counterfactual Negotiation Twin can help the autonomous agents in counterfactual forecasting of the potential supplier agreements. Finally, the feedback mechanism is used to compare the predicted supplier performance and actual supplier performance to improve future negotiations without violating the customer's awareness.
+E. Feasibility and Societal Impact of Framework Deployment
+The proposed framework can be deployed with the help of cloud computing platforms, database, application programming interface (API), large language models (LLMs), and multi-agent frameworks. This framework has the potential to save time in evaluating the suppliers, increase the integrity of the supply-chain and provide transparency to the customers about any changes made to the suppliers. Privacy, fairness, and human
+oversight need to be taken care of during the deployment of this system.
+Fig. 4.  Intelligent supplier negotiation and customer-aware supply chain decision-making.
+VI. CONCLUSION
+The proposed framework provides a multi-agent intelligent framework for adaptive supplier negotiation and decision-making. The Counterfactual Negotiation Twin of this system allows the system to understand the cost, inventory, delivery, risk and service level of possible supplier agreements and make a selection. The proposed framework also allows the system to adaptively retain, negotiate, and switch suppliers based on predicted outcomes from the supply-chain.
+The supplier comparison, counterfactual simulation and customer impact modules together provide a comprehensive approach to supply-chain management compared to existing approaches. Comparing the predicted and actual performance of the supplier provides the feedback to the framework which helps in improving the future supplier decisions.
+REFERENCES
+[1] P. Faratin, C. Sierra, and N. R. Jennings, “Negotiation decision functions for autonomous agents,” Robotics and Autonomous Systems, vol. 24, nos. 3–4, pp. 159–182, 1998.
+[2] N. R. Jennings, P. Faratin, A. R. Lomuscio, S. Parsons, C. Sierra, and M. Wooldridge, “Automated negotiation: Prospects, methods and challenges,” Group Decision and Negotiation, vol. 10, no. 2, pp. 199–215, 2001.
+[3] H. Rau, M.-H. Tsai, C.-W. Chen, and W.-J. Shiang, “Learning-based automated negotiation between shipper and forwarder,” Computers & Industrial Engineering, vol. 51, no. 3, pp. 464–481, 2006.
+[4] C. A. Weber, J. R. Current, and W. C. Benton, “Vendor selection criteria and methods,” European Journal of Operational Research, vol. 50, no. 1, pp. 2–18, 1991.
+[5] M. Christopher and H. Peck, “Building the resilient supply chain,” The International Journal of Logistics Management, vol. 15, no. 2, pp. 1–13, 2004.
+[6] S. Y. Ponomarov and M. C. Holcomb, “Understanding the concept of supply chain resilience,” The International Journal of Logistics Management, vol. 20, no. 1, pp. 124–143, 2009.
+[7] L. A. Ocampo, G. K. M. Abad, K. G. L. Cabusas, M. L. A. Padon, and N. C. Sevilla, “Recent approaches to supplier selection: A review of literature within 2006–2016,” International Journal of Integrated Supply Management, vol. 12, nos. 1–2, pp. 22–68, 2018.
+[8] J. Chai and E. W. T. Ngai, “Decision-making techniques in supplier selection: Recent accomplishments and what lies ahead,” Expert Systems with Applications, vol. 140, 2020.
+[9] R. Bhandal, R. Meriton, R. E. Kavanagh, and A. Brown, “The application of digital twin technology in operations and supply chain management: A bibliometric review,” Supply Chain Management: An International Journal, vol. 27, no. 2, pp. 182–206, 2022.
+[10] T. Nguyen, Q. H. Duong, T. V. Nguyen, Y. Zhu, and L. Zhou, “Knowledge mapping of digital twin and physical internet in supply chain management: A systematic literature review,” International Journal of Production Economics, vol. 244, 2022.
+[11] J. Pearl, “Causal inference in statistics: An overview,” Statistics Surveys, vol. 3, pp. 96–146, 2009.
+[12] S. Yao, J. Zhao, D. Yu, N. Du, I. Shafran, K. R. Narasimhan, and Y. Cao, “ReAct: Synergizing reasoning and acting in language models,” Advances in Neural Information Processing Systems, 2022.
+[13] Q. Wu, G. Bansal, J. Zhang, Y. Wu, B. Li, E. Zhu, L. Jiang, X. Zhang, S. Zhang, J. Liu, A. H. Awadallah, R. W. White, D. Burger, and C. Wang, “AutoGen: Enabling next-gen LLM applications via multi-agent conversation,” arXiv preprint, 2023.
+[14] L. E. Bygballe, “Toward a conceptualization of supplier-switching processes in business relationships,” Journal of Purchasing and Supply Management, vol. 23, no. 1, pp. 40–53, 2017.
+[15] Y. Duan, C. Hofer, and J. A. Aloysius, “Consumers care and firms should too: On the benefits of disclosing supplier monitoring activities,” Journal of Operations Management, vol. 67, no. 3, pp. 360–381, 2021.

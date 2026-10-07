@@ -1,0 +1,40 @@
+{
+  "profile_id": "default_enterprise",
+  "organization_name": "Rimberio Global Dynamics",
+  "weights": {
+    "cost": 0.3,
+    "quality": 0.25,
+    "delivery": 0.2,
+    "reliability": 0.15,
+    "risk": 0.1
+  },
+  "agent_heuristics": {
+    "buyer_target_price": 142.5,
+    "buyer_reservation_price": 155.0,
+    "supplier_asking_price": 165.0,
+    "supplier_reservation_price": 145.0,
+    "max_rounds": 10,
+    "concession_strategy": "boulware",
+    "concession_beta": 2.5,
+    "llm_provider": "heuristic_rule_engine",
+    "system_prompt_override": null
+  },
+  "simulation": {
+    "monte_carlo_runs": 500,
+    "default_demand_surge_percent": 25.0,
+    "default_lead_time_drift_days": 6,
+    "cost_sensitivity_factor": 1.2,
+    "confidence_interval": 0.95
+  },
+  "policy": {
+    "switch_score_delta_threshold": 0.1,
+    "critical_risk_threshold": 0.65,
+    "max_allowable_switching_cost": 50000.0,
+    "auto_apply_recommendations": false
+  },
+  "notifications": {
+    "email_subject": "CRITICAL SUPPLY CHAIN ADVISORY: Revised Delivery Schedule for Order #{order_id}",
+    "email_body": "Dear {customer_name},\n\nWe are writing to inform you of an operational routing adjustment affecting order #{order_id} ({sku_name}). Due to {disruption_reason}, the revised expected delivery date is {revised_delivery_date} (delay of approximately {delay_days} business days).\n\nOur autonomous mitigation engine has secured priority freight to minimize further exposure.\n\nSincerely,\nRimberio Supply Chain Operations",
+    "sms_body": "Rimberio Notice: Order #{order_id} has a revised ETA of {revised_delivery_date} due to {disruption_reason}."
+  }
+}
