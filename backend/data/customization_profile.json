@@ -16,7 +16,7 @@
     "max_rounds": 10,
     "concession_strategy": "boulware",
     "concession_beta": 2.5,
-    "llm_provider": "heuristic_rule_engine",
+    "llm_provider": "local_ollama",
     "system_prompt_override": null
   },
   "simulation": {

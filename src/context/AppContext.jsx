@@ -1,130 +1,154 @@
-import React, { createContext, useContext, useState } from 'react';
+/**
+ * RIMBERIO Enterprise Application Context
+ * =========================================
+ * Manages: authentication state, user profile, permissions,
+ * capabilities, navigation, and page routing.
+ *
+ * NO fake users. NO fake roles. NO hardcoded business data.
+ * Everything comes from the backend via JWT-authenticated API calls.
+ */
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { RimberioAPI } from '../services/api';
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  // Navigation flow: landing → login → dashboard
+  // ── Navigation State ──
   const [currentPage, setCurrentPage] = useState('landing');
+  const [loading, setLoading] = useState(true);
 
+  // ── Auth State ──
   const [user, setUser] = useState(null);
+  const [permissions, setPermissions] = useState([]);
+  const [capabilities, setCapabilities] = useState([]);
+  const [navigation, setNavigation] = useState({ items: [], sections: {} });
 
-  const [activeDisruption] = useState({
-    id: 'DIS-2026-089',
-    title: 'Suez Canal Route Congestion & Port Delay',
-    severity: 'CRITICAL',
-    impactedSKUs: 42,
-    estimatedCostImpact: '$340,000',
-    delayDays: 6,
-  });
+  // ── UI State ──
+  const [notification, setNotification] = useState({ show: false, message: '' });
 
-  const [negotiationState, setNegotiationState] = useState({
-    round: 4,
-    buyerTargetPrice: 142.5,
-    supplierAskingPrice: 154.0,
-    currentOffer: 148.2,
-    agreedLeadTime: '12 Days',
-    agentConfidence: 94.8,
-  });
+  // ── Initialize from stored token ──
+  useEffect(() => {
+    const token = localStorage.getItem('rimberio_token');
+    if (token) {
+      loadUserContext().catch(() => {
+        // Token invalid/expired
+        localStorage.removeItem('rimberio_token');
+        localStorage.removeItem('rimberio_user');
+        setLoading(false);
+      });
+    } else {
+      setLoading(false);
+    }
 
-  const [notification, setNotification] = useState({
-    show: true,
-    message:
-      'AI Digital Twin active: Autonomous negotiation agent saved $84,200 on Micro-Capacitor batch #772.',
-  });
+    // Listen for forced logout (from API 401)
+    const handleLogout = () => {
+      setUser(null);
+      setPermissions([]);
+      setCapabilities([]);
+      setNavigation({ items: [], sections: {} });
+      setCurrentPage('landing');
+    };
+    window.addEventListener('rimberio_logout', handleLogout);
+    return () => window.removeEventListener('rimberio_logout', handleLogout);
+  }, []);
 
-  // Roles defined in research paper & project review slides
-  const ROLES = [
-    {
-      id: 'BUYER_AGENT',
-      name: 'Buyer Agent',
-      title: 'Enterprise Procurement Lead',
-      description: 'Negotiates contracts, sets budget thresholds, enforces enterprise quality.',
-      badge: 'BUYER',
-    },
-    {
-      id: 'SUPPLIER_AGENT',
-      name: 'Supplier Agent',
-      title: 'Vendor Representative (Apex Global)',
-      description: 'Offers unit prices, negotiates volume discounts, manages production quotas.',
-      badge: 'SUPPLIER',
-    },
-    {
-      id: 'LOGISTICS_AGENT',
-      name: 'Logistics Agent',
-      title: 'Global Freight & Port Telemetry',
-      description: 'Monitors port congestion, carrier transit corridors, and route ETA deltas.',
-      badge: 'LOGISTICS',
-    },
-    {
-      id: 'CUSTOMER_IMPACT_AGENT',
-      name: 'Customer Impact Agent',
-      title: 'Customer Relations & Notification Officer',
-      description:
-        'Audits order SLAs, delivery impacts, and sends transparent delay notifications.',
-      badge: 'CUSTOMER',
-    },
-    {
-      id: 'ADMIN_AUDITOR',
-      name: 'Operations Lead',
-      title: 'System Auditor & Model Supervisor',
-      description: 'Oversees Retain/Negotiate/Switch logic, audits model error & confusion matrix.',
-      badge: 'ADMIN',
-    },
-  ];
+  // ── Load full user context from /me endpoints ──
+  const loadUserContext = useCallback(async () => {
+    try {
+      const [meData, permData, capData, navData] = await Promise.all([
+        RimberioAPI.getMe(),
+        RimberioAPI.getMyPermissions(),
+        RimberioAPI.getMyCapabilities(),
+        RimberioAPI.getMyNavigation(),
+      ]);
 
-  const [currentRole, setCurrentRole] = useState(ROLES[0].id);
-  const [customerNoticesCount, setCustomerNoticesCount] = useState(4);
-  const [modelLearningMetrics, setModelLearningMetrics] = useState({
-    accuracy: '92.4%',
-    mae: '0.34 Days',
-    rmse: '0.48 Days',
-    lastUpdated: 'Just now',
-    policyVersion: 'v4.2.1-Adaptive',
-  });
+      setUser(meData);
+      setPermissions(permData.permissions || []);
+      setCapabilities(capData.capabilities || []);
+      setNavigation({
+        items: navData.items || [],
+        sections: navData.sections || {},
+        role: navData.role,
+        role_display: navData.role_display,
+      });
 
-  const login = (email, _password) => {
-    const name = email
-      .split('@')[0]
-      .split('.')
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(' ');
+      // Navigate to dashboard after context load
+      setCurrentPage('dashboard');
+    } catch (err) {
+      console.error('[AppContext] Failed to load user context:', err);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-    setUser({
-      name,
-      email,
-      role: 'Enterprise Supply Planner',
-      company: 'Rimberio Global Dynamics',
-      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=C026D3&color=fff&bold=true&size=64`,
-    });
-    setCurrentPage('dashboard');
-  };
+  // ── Login ──
+  const login = useCallback(async (email, password) => {
+    const result = await RimberioAPI.login(email, password);
+    localStorage.setItem('rimberio_token', result.access_token);
+    localStorage.setItem('rimberio_user', JSON.stringify(result.user));
+    await loadUserContext();
+    return result;
+  }, [loadUserContext]);
 
-  const logout = () => {
+  // ── Register ──
+  const register = useCallback(async (data) => {
+    const result = await RimberioAPI.register(data);
+    localStorage.setItem('rimberio_token', result.access_token);
+    await loadUserContext();
+    return result;
+  }, [loadUserContext]);
+
+  // ── Logout ──
+  const logout = useCallback(() => {
+    localStorage.removeItem('rimberio_token');
+    localStorage.removeItem('rimberio_user');
     setUser(null);
+    setPermissions([]);
+    setCapabilities([]);
+    setNavigation({ items: [], sections: {} });
     setCurrentPage('landing');
-  };
+  }, []);
+
+  // ── Permission Check Helper ──
+  const hasPermission = useCallback(
+    (code) => permissions.includes(code),
+    [permissions]
+  );
+
+  // ── Role Check Helper ──
+  const hasRole = useCallback(
+    (roleName) => user?.role === roleName || (user?.roles || []).includes(roleName),
+    [user]
+  );
 
   return (
     <AppContext.Provider
       value={{
+        // Navigation
         currentPage,
         setCurrentPage,
+        loading,
+
+        // Auth
         user,
-        setUser,
-        activeDisruption,
-        negotiationState,
-        setNegotiationState,
+        permissions,
+        capabilities,
+        navigation,
+        login,
+        register,
+        logout,
+
+        // Helpers
+        hasPermission,
+        hasRole,
+
+        // UI
         notification,
         setNotification,
-        currentRole,
-        setCurrentRole,
-        roles: ROLES,
-        customerNoticesCount,
-        setCustomerNoticesCount,
-        modelLearningMetrics,
-        setModelLearningMetrics,
-        login,
-        logout,
+
+        // Reload context (e.g., after admin changes)
+        reloadContext: loadUserContext,
       }}
     >
       {children}

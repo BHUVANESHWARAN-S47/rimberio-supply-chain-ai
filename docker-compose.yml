@@ -1,0 +1,110 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: rimberio-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-rimberio_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rimberio_secure_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-rimberio}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - rimberio-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rimberio_admin -d rimberio"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: rimberio-chromadb
+    restart: always
+    environment:
+      - IS_PERSISTENT=TRUE
+      - PERSIST_DIRECTORY=/chroma/chroma
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    networks:
+      - rimberio-network
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: rimberio-ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - rimberio-network
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: rimberio-backend
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+      chromadb:
+        condition: service_started
+      ollama:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://rimberio_admin:rimberio_secure_pass@postgres:5432/rimberio
+      - DATABASE_SYNC_URL=postgresql+psycopg2://rimberio_admin:rimberio_secure_pass@postgres:5432/rimberio
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+      - LLM_PROVIDER=${LLM_PROVIDER:-ollama}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://ollama:11434}
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3.2:3b}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    ports:
+      - "8080:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./docs:/app/docs
+    networks:
+      - rimberio-network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: rimberio-pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@rimberio.ai}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-rimberio_admin_2026}
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - rimberio-network
+
+volumes:
+  postgres_data:
+    driver: local
+  chroma_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+  ollama_data:
+    driver: local
+
+networks:
+  rimberio-network:
+    driver: bridge

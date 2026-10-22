@@ -4,7 +4,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 
 DB_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 os.makedirs(DB_DIR, exist_ok=True)
-DB_PATH = os.path.join(DB_DIR, "rimberio_enterprise.db")
+DB_PATH = os.path.join(DB_DIR, "rimberio_legacy.db")
 
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 

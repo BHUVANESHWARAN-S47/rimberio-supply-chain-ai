@@ -49,6 +49,104 @@ class DynamicDataManager:
         df = pd.DataFrame(records)
         df.to_csv(SUPPLIERS_CSV, index=False)
 
+    def add_supplier(self, supplier_data: Dict[str, Any]) -> Dict[str, Any]:
+        suppliers = self.get_suppliers()
+        # Set defaults
+        code = supplier_data.get("code") or f"SUP-{len(suppliers)+1:03d}"
+        supplier_data["code"] = code
+        supplier_data.setdefault("tier", "Standard")
+        supplier_data.setdefault("country", "Global")
+        supplier_data.setdefault("unit_cost", 145.0)
+        supplier_data.setdefault("quality_score", 90.0)
+        supplier_data.setdefault("on_time_delivery_rate", 92.0)
+        supplier_data.setdefault("reliability_index", 90.0)
+        supplier_data.setdefault("risk_score", 25.0)
+        supplier_data.setdefault("capacity_monthly", 40000)
+        supplier_data.setdefault("status", "ACTIVE")
+        
+        # Check if code already exists; if so, replace
+        existing_idx = next((i for i, s in enumerate(suppliers) if str(s.get("code")).upper() == str(code).upper()), None)
+        if existing_idx is not None:
+            suppliers[existing_idx] = supplier_data
+        else:
+            suppliers.append(supplier_data)
+            
+        self.save_suppliers(suppliers)
+        return supplier_data
+
+    def update_supplier(self, code: str, update_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        suppliers = self.get_suppliers()
+        for idx, s in enumerate(suppliers):
+            if str(s.get("code")).upper() == str(code).upper():
+                s.update(update_data)
+                suppliers[idx] = s
+                self.save_suppliers(suppliers)
+                return s
+        return None
+
+    def delete_supplier(self, code: str) -> bool:
+        suppliers = self.get_suppliers()
+        initial_len = len(suppliers)
+        suppliers = [s for s in suppliers if str(s.get("code")).upper() != str(code).upper()]
+        if len(suppliers) < initial_len:
+            self.save_suppliers(suppliers)
+            return True
+        return False
+
+    def add_order(self, order_data: Dict[str, Any]) -> Dict[str, Any]:
+        orders = self.get_orders()
+        order_id = order_data.get("order_id") or f"ORD-{len(orders)+1:04d}"
+        order_data["order_id"] = order_id
+        order_data.setdefault("customer_name", "Enterprise Client")
+        order_data.setdefault("customer_tier", "Standard Commercial")
+        order_data.setdefault("contact_email", "procurement@client.com")
+        order_data.setdefault("sku_code", "SKU-GENERIC")
+        order_data.setdefault("quantity", 1000)
+        order_data.setdefault("unit_price", 140.0)
+        order_data.setdefault("promised_eta", "2026-10-25")
+        order_data.setdefault("revised_eta", "2026-10-27")
+        order_data.setdefault("delay_days", 2)
+        order_data.setdefault("sla_penalty_exposure", 1200.0)
+        order_data.setdefault("status", "PENDING")
+
+        orders.append(order_data)
+        self.save_orders(orders)
+        return order_data
+
+    def update_order(self, order_id: str, update_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        orders = self.get_orders()
+        for idx, o in enumerate(orders):
+            if str(o.get("order_id")).upper() == str(order_id).upper():
+                o.update(update_data)
+                orders[idx] = o
+                self.save_orders(orders)
+                return o
+        return None
+
+    def delete_order(self, order_id: str) -> bool:
+        orders = self.get_orders()
+        initial_len = len(orders)
+        orders = [o for o in orders if str(o.get("order_id")).upper() != str(order_id).upper()]
+        if len(orders) < initial_len:
+            self.save_orders(orders)
+            return True
+        return False
+
+    def save_orders(self, records: List[Dict[str, Any]]):
+        df = pd.DataFrame(records)
+        df.to_csv(ORDERS_CSV, index=False)
+
+    def reset_to_kaggle_benchmarks(self) -> Dict[str, Any]:
+        self.generate_synthetic_suppliers(count=20)
+        self.generate_synthetic_orders(count=25)
+        self.generate_synthetic_fulfillment(count=100)
+        return {
+            "status": "SUCCESS",
+            "suppliers_count": len(self.get_suppliers()),
+            "orders_count": len(self.get_orders()),
+            "message": "Reset all records to official Kaggle Supply Chain & DataCo benchmark distributions."
+        }
+
     def import_suppliers_csv(self, csv_content: str) -> int:
         df = pd.read_csv(StringIO(csv_content))
         for col, default_val in [
